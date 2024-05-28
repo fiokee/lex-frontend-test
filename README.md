@@ -1,7 +1,7 @@
 
 ## `run npm install`
 
-In the project directory, you can run:
+In the terminal to install all the dependencies:
 
 ### `npm start`
 
