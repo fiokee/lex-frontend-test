@@ -1,0 +1,133 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .header .logo {
+    font-size: 24px;
+  }
+  
+  .header .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .icon {
+    font-size: 24px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+  }
+  
+  .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width:  80%;
+    height: 70%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 15px 15px 5px rgb(212, 212, 216), 10px 16px 8px rgb(236, 234, 234), 15px 15px 8px rgb(236, 238, 236);
+  }
+  
+  
+  
+  .logout-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  
+  
+  .logout-button:hover {
+    text-decoration: underline;
+  }
+  /* Responsive styles */
+
+  @media (max-width: 768px) {
+    .crypto-list-container {
+      padding: 10px;
+    }
+  
+    .crypto-list {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header, .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .header .header-icons {
+      margin-top: 10px;
+    }
+  
+    .options-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header .logo {
+      font-size: 20px;
+    }
+  
+    .header .icon {
+      font-size: 20px;
+    }
+  
+    .title {
+      font-size: 18px;
+    }
+  
+    .footer .footer-icon {
+      font-size: 20px;
+    }
+  }
+  

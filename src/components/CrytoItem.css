@@ -1,0 +1,43 @@
+.crypto-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border: solid green;
+  }
+  
+  .crypto-icon {
+    font-size: 2rem;
+    margin-right: 20px;
+  }
+  
+  .crypto-details h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .crypto-details p {
+    margin: 0;
+    color: gray;
+  }
+  
+  @media (max-width: 768px) {
+    .crypto-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+  
+    .crypto-icon {
+      margin-bottom: 10px;
+    }
+  
+    .crypto-details h2 {
+      font-size: 1rem;
+    }
+  
+    .crypto-details p {
+      font-size: 0.9rem;
+    }
+  }
+  

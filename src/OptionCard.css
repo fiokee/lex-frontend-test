@@ -1,0 +1,87 @@
+ /* OptionCard.css */
+ .option-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+  }
+  
+  .option-card:hover {
+    background-color: white;
+  }
+  
+  .option-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  .option-details {
+    text-align: left;
+  }
+  
+  .option-details h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .option-details p {
+    margin: 5px 0 0;
+    color: #777;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .option-card {
+      width: 90%;
+    }
+  
+    .footer-icon {
+      font-size: 20px;
+    }
+  
+    .title {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      font-size: 16px;
+      justify-content: space-between; /* Ensure content is spaced properly on small screens */
+    }
+  
+    .logo {
+      font-size: 20px; /* Adjust logo font size for smaller screens */
+    }
+  
+    .header-icons {
+      gap: 5px; /* Reduce gap between icons on smaller screens */
+    }
+  
+    .icon {
+      font-size: 20px; /* Adjust icon size for smaller screens */
+    }
+  
+    .option-icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+    }
+  
+    .option-details h2 {
+      font-size: 16px;
+    }
+  
+    .footer-icon {
+      font-size: 18px;
+    }
+  
+    .title {
+      font-size: 18px;
+    }
+  }
