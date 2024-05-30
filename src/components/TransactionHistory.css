@@ -2,37 +2,52 @@
     background-color: green;
     color: white;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    height: 92vh;
   }
-  
+  .transaction-history h1{
+    font-size: 20px;
+    margin: 23px;
+  }
   .filter-buttons {
     display: flex;
     margin-bottom: 20px;
     justify-content: center;
+    width: 80%;
+    padding: 12px;
+    margin: auto;
+    border-radius: 50px;
+    background-color: rgb(199, 194, 194);
   }
   
   .filter-buttons button {
-    background-color: lightgray;
+    background-color: rgb(129, 170, 149);
     border: none;
-    padding: 10px 20px;
+    padding: 15px 10px;
     cursor: pointer;
     margin-right: 10px;
     flex: 1;
-    max-width: 150px;
+    max-width: 50%;
+    border-radius: 20px;
     text-align: center;
+    color: white;
+    font-size: 16px;
   }
   
   .filter-buttons .active {
-    background-color: darkgray;
+    background-color: rgb(21, 128, 95);
+    color: white;
   }
   
   .transactions {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    margin: 12px;
   }
   
   .transaction-item {
-    background-color: #2e7d32;
+    background-color: #0d9712;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -40,12 +55,43 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    border: solid 1px white;
+    width: 30%;
+    border-radius: 15px;
+  }
+
+  .logo3 img{
+    width: 10%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  /* .tans-date{
+    padding: 12px;
+    text-align: center;
+    align-items: center;
+    display: block;
+  }
+   */
+
+   .amount {
+    font-weight: bold;
   }
   
-  .description, .date, .amount {
+  .amount.sold {
+    color: red;
+  }
+  
+  .amount.bought {
+    color: orange;
+  }
+  .description, .date{
     flex: 1;
     text-align: center;
     min-width: 100px;
+    text-align: justify;
+    font-weight: bold;
+    margin: 5px;
   }
   
   /* Media Queries */

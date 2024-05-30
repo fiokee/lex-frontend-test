@@ -1,16 +1,16 @@
 .footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #0d9712;
     color: white;
     border-radius: 30px;
     width: 80%;
     margin: auto;
     margin-bottom: 15px;
     position: fixed;
-    padding: 10px 0;
+    padding: 10px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -18,7 +18,7 @@
   }
   
   .footer .footer-icon {
-    font-size: 24px;
+    font-size: 27px;
     cursor: pointer;
   }
   

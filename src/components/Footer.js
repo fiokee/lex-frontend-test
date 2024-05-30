@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { FaHome, FaHistory ,FaMoneyBill, FaUser  } from 'react-icons/fa'; 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -12,14 +13,14 @@ const Footer = () => {
   return (
     <footer className="footer">
         <NavLink to='/dashboard'>
-          <div className="footer-icon">🏠</div>
+          <div className="footer-icon"><FaHome/></div>
         </NavLink>
         <NavLink to='/history'>
-          <div className="footer-icon">🔄</div>
+          <div className="footer-icon"><FaHistory/></div>
         </NavLink>
-        <div className="footer-icon" onClick={handleMoneyIconClick}>💵</div> 
+        <div className="footer-icon" onClick={handleMoneyIconClick}><FaMoneyBill/></div> 
         <NavLink to='/profile'>
-          <div className="footer-icon">👤</div>
+          <div className="footer-icon"><FaUser/></div>
         </NavLink>
       </footer>
   )

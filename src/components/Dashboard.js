@@ -6,15 +6,22 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Dashboard.css';
 import { AuthContext } from '../shared/context/auth_context';
+import Footer from './Footer';
+import icon1 from '../assets/buy_bitcoin.jpeg';
+import icon2 from '../assets/sell_crypto.png';
+import icon3 from '../assets/logo.png';
+import icon4 from '../assets/logo.png';
+import icon5 from '../assets/logo.png';
+import icon6 from '../assets/logo.png';
 
 const Dashboard = () => {
   const options = [
-    { title: "Buy Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "🪙" },
-    { title: "Sell Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "💰" },
-    { title: "Buy & Sell Giftcards", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "path/to/icon3.png" },
-    { title: "Buy & Sell Paypal Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "path/to/icon4.png" },
-    { title: "Chime Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "path/to/icon5.png" },
-    { title: "CashApp Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: "path/to/icon6.png" },
+    { title: "Buy Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon1 },
+    { title: "Sell Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon2 },
+    { title: "Buy & Sell Giftcards", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon3},
+    { title: "Buy & Sell Paypal Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon4 },
+    { title: "Chime Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon5},
+    { title: "CashApp Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon6},
   ];
 
   const { username, logout } = useContext(AuthContext);
@@ -50,6 +57,7 @@ const Dashboard = () => {
         </div>
       </div>
       
+      {/* <Footer/> */}
       {/* <ToastContainer /> */}
     </div>
   );

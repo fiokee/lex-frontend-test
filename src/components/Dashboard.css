@@ -17,8 +17,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #4CAF50;
+    background-color: #0d9712;
     color: white;
+    height: 15vh;
   }
   
   .header .logo {
@@ -31,7 +32,7 @@
   }
   
   .header .icon {
-    font-size: 24px;
+    font-size: 27px;
     margin-left: 15px;
     cursor: pointer;
   }
@@ -54,14 +55,21 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    max-width:  80%;
+    max-width: 80%;
     height: 70%;
     background-color: white;
     color: black;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 15px 15px 5px rgb(212, 212, 216), 10px 16px 8px rgb(236, 234, 234), 15px 15px 8px rgb(236, 238, 236);
+    /* Adding transparent shadows to both left and right sides */
+    box-shadow: 
+      -10px 0 15px -5px rgba(0, 0, 0, 0.2), /* Left shadow */
+      10px 0 15px -5px rgba(0, 0, 0, 0.2), /* Right shadow */
+      15px 15px 5px rgba(212, 212, 216, 0.2),
+      10px 16px 8px rgba(236, 234, 234, 0.2),
+      15px 15px 8px rgba(236, 238, 236, 0.2);
   }
+  
   
   
   

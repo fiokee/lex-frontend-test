@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import { ToastContainer } from 'react-toastify';
@@ -64,11 +64,16 @@ function App() {
         <main>
           {routes}
         </main>
-        <Footer/>
+        <ConditionalFooter />
       </Router>
       <ToastContainer />
     </AuthContext.Provider>
   );
 }
+//not to render Footer in auth and register components
+const ConditionalFooter = () => {
+  const location = useLocation();
+  return location.pathname !== '/auth' && location.pathname !== '/register' ? <Footer /> : null;
+};
 
 export default App;

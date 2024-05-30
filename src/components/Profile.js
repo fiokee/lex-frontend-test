@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from '../shared/context/loading/LoadingSpinner';
 import { useNavigate } from 'react-router-dom';
+import ProfileImg from '../assets/placeholder.png';
 
 const Profile = () => {
   const [formFields, setFormFields] = useState({
@@ -18,13 +19,13 @@ const Profile = () => {
     country: '',
     city: '',
     zip: '',
-    state: ''
+    state: '',
   });
   const [profilePicture, setProfilePicture] = useState(null);
 
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  const { isLoading, sendRequest, error, clearError } = useHttpClient();
+  const { isLoading, sendRequest } = useHttpClient();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -51,17 +52,23 @@ const Profile = () => {
     setProfilePicture(event.target.files[0]);
   };
 
+  //updating user info
   const updatePlacehandler = async (event) => {
     event.preventDefault();
+
+    const formData = new FormData();
+    for (const key in formFields) {
+      formData.append(key, formFields[key]);
+    }
+    if (profilePicture) {
+      formData.append('profilePicture', profilePicture);
+    }
 
     try {
       await sendRequest(
         'http://localhost:4000/api/users/update',
         'PATCH',
-        JSON.stringify(formFields),
-        {
-          'Content-Type': 'application/json'
-        }
+        formData
       );
       toast.success('Profile Update successful!');
       navigate('/dashboard/history');
@@ -71,27 +78,10 @@ const Profile = () => {
     }
   };
 
-  const handlePictureUpload = async (event) => {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append('profilePicture', profilePicture);
-
-    try {
-      await sendRequest(
-        'http://localhost:4000/api/users/profile-picture',
-        'PATCH',
-        formData
-      );
-      toast.success('Profile picture updated successfully!');
-    } catch (error) {
-      console.error('Failed to upload profile picture', error);
-    }
+  const changePasswordHandler = () => {
+    navigate('/change-password');
   };
 
-  const changePasswordHandler =()=>{
-    navigate('/change-password')
-  }
   if (isLoading) {
     return (
       <div className='center'>
@@ -102,39 +92,46 @@ const Profile = () => {
 
   return (
     <div className="register-container">
-      <h1>Hello there <span role="img" aria-label="wave">👋</span></h1>
-      <p onClick={changePasswordHandler}>change password</p>
+      <h3>Profile Setting</h3>
+      <p onClick={changePasswordHandler}>Change Password</p>
+      <div className='container'>
+        <div className='profile-image'>
+          <p>Profile Picture</p>
+          <img src={ProfileImg} alt='profile-image'/>
+          <h1>Choose File</h1>
+        </div>
       {!isLoading && (
-        <>
-          <form className="register-form" onSubmit={updatePlacehandler}>
-            <label htmlFor="firstname">Firstname</label>
-            <input type="text" id="firstname" name="firstname" value={formFields.firstname} required onChange={handleInputChange} />
-            <label htmlFor="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastname" value={formFields.lastname} required onChange={handleInputChange} />
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" value={formFields.username} required onChange={handleInputChange} />
-            <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" name="email" value={formFields.email} required onChange={handleInputChange} />
-            <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" value={formFields.phone} required onChange={handleInputChange} />
-            <label htmlFor="country">Country</label>
-            <input type="text" id="country" name="country" value={formFields.country} onChange={handleInputChange} />
-            <label htmlFor="city">City</label>
-            <input type="text" id="city" name="city" value={formFields.city} onChange={handleInputChange} />
-            <label htmlFor="zip">Zip</label>
-            <input type="text" id="zip" name="zip" value={formFields.zip} onChange={handleInputChange} />
-            <label htmlFor="state">State</label>
-            <input type="text" id="state" name="state" value={formFields.state} onChange={handleInputChange} />
-            <button type="submit" className="register-button">Update</button>
-          </form>
-          <form className="profile-picture-form" onSubmit={handlePictureUpload}>
-            <label htmlFor="profilePicture">Profile Picture</label>
-            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onChange={handleFileChange} required />
-            <button type="submit" className="register-button">Upload</button>
-          </form>
-        </>
+        <form className="register-form" onSubmit={updatePlacehandler}>
+          <label htmlFor="firstname">Firstname</label>
+          <input type="text" id="firstname" name="firstname" value={formFields.firstname} required onChange={handleInputChange} />
+          <label htmlFor="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" value={formFields.lastname} required onChange={handleInputChange} />
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" value={formFields.username} required onChange={handleInputChange} />
+          <label htmlFor="email">Email Address</label>
+          <input type="email" id="email" name="email" value={formFields.email} required onChange={handleInputChange} />
+          <label htmlFor="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" value={formFields.phone} required onChange={handleInputChange} />
+          
+          <div className='coutry-state'>
+          <label htmlFor="country">Country</label>
+          <input type="text" id="country" name="country" value={formFields.country} onChange={handleInputChange} />
+          <label htmlFor="city">City</label>
+          <input type="text" id="city" name="city" value={formFields.city} onChange={handleInputChange} />
+          </div>
+          <div className='country-item'>
+          <label htmlFor="zip">Zip</label>
+          <input type="text" id="zip" name="zip" value={formFields.zip} onChange={handleInputChange} />
+          <label htmlFor="state">State</label>
+          <input type="text" id="state" name="state" value={formFields.state} onChange={handleInputChange} />
+          </div>
+          <label htmlFor="profilePicture">Profile Picture</label>
+          <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onChange={handleFileChange} />
+          <button type="submit" className="register-button">Update</button>
+        </form>
       )}
     </div>
+      </div>
   );
 };
 

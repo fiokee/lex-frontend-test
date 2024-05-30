@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import './TransactionHistory.css';
+import imgIcon from '../assets/logo.png';
 
 const transactions = [
-  { type: 'sold', description: 'AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
-  { type: 'bought', description: 'NIGE AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
   { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
-  { type: 'bought', description: 'NIGE AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
+  { type: 'bought', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
 ];
 
 const TransactionHistory = () => {
@@ -29,9 +40,14 @@ const TransactionHistory = () => {
       <div className="transactions">
         {transactions.filter(transaction => transaction.type === filter).map((transaction, index) => (
           <div className="transaction-item" key={index}>
-            <div className="description">{transaction.description}</div>
-            <div className="date">{transaction.date}</div>
-            <div className="amount">{transaction.amount}</div>
+            <div className='logo3'><img src={imgIcon} alt='logo'/></div>
+            <div className='tans-date'>
+              <div className="description">{transaction.description}</div>
+              <div className="date">{transaction.date}</div>
+            </div>
+            <div className={`amount ${transaction.type === 'sold' ? 'sold' : 'bought'}`}>
+              {transaction.amount}
+            </div>
           </div>
         ))}
       </div>
