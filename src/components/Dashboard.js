@@ -5,6 +5,7 @@ import { FaBell } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import { AuthContext } from '../shared/context/auth_context';
+import Footer from './Footer'
 import UserDropdown from './UserDropDown';
 import icon1 from '../assets/buy_bitcoin.jpeg';
 import icon2 from '../assets/sell_crypto.png';
@@ -48,7 +49,7 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
       {/* <ToastContainer /> */}
     </div>
   );

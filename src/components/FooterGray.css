@@ -1,0 +1,69 @@
+.footer-gray {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #292929;
+    color: white;
+    border-radius: 30px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 56px;
+    position: sticky;
+    padding: 10px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .footer .footer-icon {
+    font-size: 27px;
+    cursor: pointer;
+  }
+  
+  .footer .footer-icon.money-icon:hover {
+    color: yellow; /* Highlight money icon on hover */
+  }
+
+  
+  @media (max-width: 768px) {
+    .header, .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .header .header-icons {
+      margin-top: 10px;
+    }
+  
+    .options-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header .logo {
+      font-size: 20px;
+    }
+  
+    .header .icon {
+      font-size: 20px;
+    }
+  
+    .title {
+      font-size: 18px;
+    }
+  
+    .footer .footer-icon {
+      font-size: 20px;
+    }
+  }
+  

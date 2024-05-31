@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './TransactionHistory.css';
 import imgIcon from '../assets/logo.png';
+import Header from './Header';
+import FooterGray from './FooterGray';
 
 const transactions = [
   { type: 'sold', description: 'USA AMAZON (25-49)', date: '22-03-2024', amount: '-₦25,200.00' },
@@ -28,6 +30,7 @@ const TransactionHistory = () => {
 
   return (
     <div className="transaction-history">
+      <Header/>
       <h1>Transaction History</h1>
       <div className="filter-buttons">
         <button className={filter === 'sold' ? 'active' : ''} onClick={() => handleFilterChange('sold')}>
@@ -51,6 +54,7 @@ const TransactionHistory = () => {
           </div>
         ))}
       </div>
+      <FooterGray/>
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.header-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+    color: white;
+    height: 15vh;
+  }
+
+  .header-nav .logo {
+    font-size: 24px;
+  }
+  
+  .header-nav .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-nav .icon {
+    font-size: 27px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  

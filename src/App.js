@@ -66,7 +66,7 @@ function App() {
         <main>
           {routes}
         </main>
-        <ConditionalFooter />
+        {/* <ConditionalFooter /> */}
       </Router>
       <ToastContainer />
     </AuthContext.Provider>

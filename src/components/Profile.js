@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from '../shared/context/loading/LoadingSpinner';
 import { useNavigate } from 'react-router-dom';
 import ProfileImg from '../assets/placeholder.png';
+import Footer from './Footer';
 
 const Profile = () => {
   const [formFields, setFormFields] = useState({
@@ -140,6 +141,7 @@ const Profile = () => {
         </form>
       )}
     </div>
+    <Footer/>
       </div>
   );
 };
