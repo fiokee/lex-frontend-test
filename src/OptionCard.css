@@ -7,7 +7,6 @@
     /* border-bottom: 1px solid #ccc; */
     cursor: pointer;
     transition: background-color 0.3s;
-    
   }
   
   .option-card:hover {
@@ -38,7 +37,7 @@
   /* Responsive Styles */
   @media (max-width: 768px) {
     .option-card {
-      width: 90%;
+      width: 100%;
     }
   
     .footer-icon {
@@ -77,6 +76,8 @@
     .option-details h2 {
       font-size: 16px;
     }
+
+    
   
     .footer-icon {
       font-size: 18px;

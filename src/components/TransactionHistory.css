@@ -2,7 +2,7 @@
     background-color: green;
     color: white;
     padding: 20px;
-    height: 92vh;
+    height: 88vh;
   }
   .transaction-history h1{
     font-size: 20px;
@@ -95,9 +95,13 @@
   }
   
   /* Media Queries */
-  @media (max-width: 768px) {
+  @media (max-width: 758px) {
     .filter-buttons {
-      flex-direction: column;
+      flex-direction: row;
+    }
+
+    .transaction-history{
+      height: fit-content;
     }
   
     .filter-buttons button {
@@ -106,8 +110,9 @@
     }
   
     .transaction-item {
-      flex-direction: column;
+      flex-direction: row;
       text-align: center;
+      width: 100%;
     }
   
     .description, .date, .amount {

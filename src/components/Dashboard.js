@@ -1,12 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+// src/components/Dashboard.js
+import React, { useContext } from 'react';
 import OptionCard from '../OptionCard';
-import { FaBell, FaUserCircle } from 'react-icons/fa';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { FaBell } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import { AuthContext } from '../shared/context/auth_context';
-import Footer from './Footer';
+import UserDropdown from './UserDropDown';
 import icon1 from '../assets/buy_bitcoin.jpeg';
 import icon2 from '../assets/sell_crypto.png';
 import icon3 from '../assets/logo.png';
@@ -18,21 +17,15 @@ const Dashboard = () => {
   const options = [
     { title: "Buy Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon1 },
     { title: "Sell Crypto", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon2 },
-    { title: "Buy & Sell Giftcards", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon3},
+    { title: "Buy & Sell Giftcards", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon3 },
     { title: "Buy & Sell Paypal Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon4 },
-    { title: "Chime Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon5},
-    { title: "CashApp Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon6},
+    { title: "Chime Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon5 },
+    { title: "CashApp Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon6 },
   ];
 
   const { username, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Log the username to verify it's present in the context
-  // useEffect(() => {
-  //   console.log('Username from AuthContext:', username);
-  // }, [username]);
-
-  
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -44,8 +37,7 @@ const Dashboard = () => {
         <h1 className="logo">skalex, {username} <span role="img" aria-label="smiley">😊</span></h1>
         <div className="header-icons">
           <FaBell className="icon" />
-          <NavLink to='/profile'><FaUserCircle className="icon" /></NavLink>
-          <button className="logout-button" onClick={handleLogout}>Logout</button>
+          <UserDropdown onLogout={handleLogout} />
         </div>
       </header>
       <div className="content">
@@ -56,8 +48,7 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      
-      {/* <Footer/> */}
+      {/* <Footer /> */}
       {/* <ToastContainer /> */}
     </div>
   );

@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import ChangePassword from './components/ChangePassword';
 import { AuthContext } from './shared/context/auth_context';
 import Footer from './components/Footer';
+import TwoFactorAuth from './components/TwofactorAuth';
 
 function App() {
   const [token, setToken] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/change-password' element={<ChangePassword />} />
         <Route path='*' element={<Navigate to='/dashboard' />} />
+        <Route path='/2fa' element={<TwoFactorAuth/>}/>
       </Routes>
     );
   } else {

@@ -8,8 +8,8 @@
     border-radius: 30px;
     width: 80%;
     margin: auto;
-    margin-bottom: 15px;
-    position: fixed;
+    margin-bottom: 56px;
+    position: sticky;
     padding: 10px;
     bottom: 0;
     right: 0;

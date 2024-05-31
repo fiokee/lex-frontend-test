@@ -52,7 +52,6 @@ const Profile = () => {
     setProfilePicture(event.target.files[0]);
   };
 
-  //updating user info
   const updatePlacehandler = async (event) => {
     event.preventDefault();
 
@@ -92,13 +91,25 @@ const Profile = () => {
 
   return (
     <div className="register-container">
+      <div className='settings-prof'>
+
       <h3>Profile Setting</h3>
       <p onClick={changePasswordHandler}>Change Password</p>
+      </div>
       <div className='container'>
         <div className='profile-image'>
           <p>Profile Picture</p>
-          <img src={ProfileImg} alt='profile-image'/>
-          <h1>Choose File</h1>
+          <img src={profilePicture ? URL.createObjectURL(profilePicture) : ProfileImg} alt='profile-image'/>
+          <label htmlFor="file-upload" className="custom-file-upload">
+            Choose File
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+          />
         </div>
       {!isLoading && (
         <form className="register-form" onSubmit={updatePlacehandler}>
@@ -125,8 +136,6 @@ const Profile = () => {
           <label htmlFor="state">State</label>
           <input type="text" id="state" name="state" value={formFields.state} onChange={handleInputChange} />
           </div>
-          <label htmlFor="profilePicture">Profile Picture</label>
-          <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onChange={handleFileChange} />
           <button type="submit" className="register-button">Update</button>
         </form>
       )}

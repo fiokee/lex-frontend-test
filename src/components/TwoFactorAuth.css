@@ -1,0 +1,59 @@
+/* src/components/TwoFactorAuth.css */
+.two-factor-auth {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .two-factor-auth img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .two-factor-auth input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .two-factor-auth button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .two-factor-auth button:hover {
+    background-color: darkgreen;
+  }
+  
+  .two-factor-auth p {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .two-factor-auth {
+      padding: 10px;
+    }
+  
+    .two-factor-auth h2 {
+      font-size: 1.5em;
+    }
+  
+    .two-factor-auth button {
+      padding: 8px;
+    }
+  }
+  

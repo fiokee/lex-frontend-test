@@ -20,7 +20,11 @@
     min-height: 100vh;
     background-color: #f5f5f5;
   }
-  
+  .settings-prof{
+    display: flex;
+    border: solid red;
+    justify-items: space-between;
+  }
   .register-container h3 p {
     display: flex;
     flex-direction: row;
@@ -44,8 +48,17 @@
     margin: 12px;
   }
   .profile-image img{
-    width: 70%;
+    max-width: 70%;
+    max-height: 70%;
     border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .profile-image label{
+    width: 80%;
+    align-items: center;
+    padding: 13px;
+    text-align: center;
   }
   .register-form {
     width: 100%;
@@ -69,7 +82,16 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-
+.custom-file-upload{
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  background-color: #0d9712;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+}
   .coutry-state{
     display: flex;
     padding: 5px;
@@ -131,9 +153,34 @@
     }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     .register-form {
       padding: 15px;
+    }
+
+  .profile-image{
+    width: 90%;
+  }
+  .profile-image img{
+    align-items: center;
+    margin-left: 30px;
+  }
+  .profile-image label{
+    width: 100%;
+  }
+.country-state label {
+  display: block;
+}
+  .country-item{
+    display: block;
+  }
+
+  .custom-file-upload{
+    width: 100%;
+  }
+
+    .container{
+      display: block;
     }
   
     .register-button {
