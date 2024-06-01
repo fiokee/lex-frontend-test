@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useCallback, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
@@ -14,26 +15,37 @@ import Footer from './components/Footer';
 import TwoFactorAuth from './components/TwofactorAuth';
 
 function App() {
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState(null);
+  const [firstname, setFirstName] = useState(null);
+  const [lastname, setLastName] =useState(null);
+  const [profilePicture, setProfilePicture] = useState(null);
 
-  const login = useCallback((uid, token, username) => {
-    console.log('Logging in with username:', username); // Debug log
+  const login = useCallback((uid, token, username, firstname, lastname, profilePicture) => {
     setToken(token);
     setUserId(uid);
     setUsername(username);
+    setFirstName(firstname);
+    setLastName(lastname);
+    setProfilePicture(profilePicture);
   }, []);
 
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
     setUsername(null);
+    setFirstName(null);
+    setLastName(null);
+    setProfilePicture(null);
   }, []);
 
-  const update = (data) => {
-    if (data.username) setUsername(data.username); // Update username if provided
-  };
+  const update = useCallback((data) => {
+    if (data.username) setUsername(data.username);
+    if(data.firstname) setFirstName(data.firstname);
+    if(data.lastname) setLastName(data.lastname);
+    if (data.profilePicture) setProfilePicture(data.profilePicture);
+  }, []);
 
   let routes;
   if (token) {
@@ -44,8 +56,8 @@ function App() {
         <Route path='/history' element={<HistoryPage />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/change-password' element={<ChangePassword />} />
+        <Route path='/2fa' element={<TwoFactorAuth />} />
         <Route path='*' element={<Navigate to='/dashboard' />} />
-        <Route path='/2fa' element={<TwoFactorAuth/>}/>
       </Routes>
     );
   } else {
@@ -59,9 +71,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider 
-      value={{ token, isLogedIn: !!token, userId, username, login, logout, update }}
-    >
+    <AuthContext.Provider value={{ token, isLogedIn: !!token, userId, username, firstname, lastname, profilePicture, login, logout, update }}>
       <Router>
         <main>
           {routes}
@@ -72,7 +82,8 @@ function App() {
     </AuthContext.Provider>
   );
 }
-//not to render Footer in auth and register components
+
+// Not to render Footer in auth and register components
 const ConditionalFooter = () => {
   const location = useLocation();
   return location.pathname !== '/auth' && location.pathname !== '/register' ? <Footer /> : null;

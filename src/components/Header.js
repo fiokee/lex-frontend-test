@@ -6,7 +6,7 @@ import UserDropdown from './UserDropDown';
 import { AuthContext } from '../shared/context/auth_context';
 
 const Header = () => {
-    const { username, logout } = useContext(AuthContext);
+    const { username, profilePicture, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -17,10 +17,10 @@ const Header = () => {
   return (
     <div>
         <header className="header-nav">
-        <h1 className="logo">skalex, {username} <span role="img" aria-label="smiley">😊</span></h1>
+        <h1 className="logo">{username} <span role="img" aria-label="smiley">😊</span></h1>
         <div className="header-icons">
           <FaBell className="icon" />
-          <UserDropdown onLogout={handleLogout} />
+          <UserDropdown profilePicture={profilePicture} onLogout={handleLogout} />
         </div>
       </header>
     </div>

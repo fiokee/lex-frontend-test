@@ -1,10 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import './ChangePassword.css';
 import useHttpClient from '../shared/context/http_hook';
 import { AuthContext } from '../shared/context/auth_context';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from '../shared/context/loading/LoadingSpinner';
+import FooterGray from './FooterGray';
+import MainHeader from './MainHeader';
+
 
 const ChangePassword = () => {
   const [formFields, setFormFields] = useState({
@@ -56,11 +59,14 @@ const ChangePassword = () => {
   };
 
   return (
+    <Fragment>
+
+      <MainHeader/>
     <div className="register-container">
-      <h1>Hello there <span role="img" aria-label="wave">👋</span></h1>
       {isLoading && <LoadingSpinner />}
       {!isLoading && (
         <form className="register-form" onSubmit={changePasswordHandler}>
+          <h1>Change Password</h1>
           <label htmlFor="oldPassword">Old Password</label>
           <input 
             type="password" 
@@ -94,7 +100,9 @@ const ChangePassword = () => {
           <button type="submit" className="register-button">Update</button>
         </form>
       )}
+      <FooterGray/>
     </div>
+    </Fragment>
   );
 };
 

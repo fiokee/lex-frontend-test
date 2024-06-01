@@ -1,0 +1,45 @@
+.header-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+    color: white;
+    height: 15vh;
+  }
+
+  .header-nav .logo {
+    font-size: 24px;
+  }
+  
+  .header-nav .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-nav .icon {
+    font-size: 27px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  .header-icon{
+    border: solid 1px rgb(190, 190, 190);
+    border-radius: 5px;
+    height: auto;
+    background-color: rgb(241, 238, 238);
+    padding: 3px;
+    margin: 3px;
+    display: flex;
+  }
+
+  .other-name{
+    color: rgb(70, 69, 69);
+    font-size: 16px;
+    margin: 12px;
+  }
+  
+  @media (max-width: 450px) {
+    .header-nav{
+      display: none;
+    }
+  }

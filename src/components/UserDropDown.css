@@ -18,6 +18,7 @@
     z-index: 1000; /* Higher z-index to appear on top of the header */
     border-radius: 4px;
     overflow: hidden;
+    margin-top: 10px;
   }
   
   /* Dropdown Item */
@@ -28,11 +29,31 @@
   }
   
   .dropdown-item:hover {
-    background-color: #818080;
+    background-color: #414040;
   }
   
   /* User Icon */
   .icon {
     cursor: pointer;
   }
-  
+
+  /* src/components/UserDropdown.css */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover; /* Ensure the image is properly fitted */
+  border: solid 3px #fff;
+}
+

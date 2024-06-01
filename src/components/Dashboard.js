@@ -5,8 +5,9 @@ import { FaBell } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import { AuthContext } from '../shared/context/auth_context';
-import Footer from './Footer'
+import Footer from './Footer';
 import UserDropdown from './UserDropDown';
+import useFetchUserInfo from './useFetchUserIfo';
 import icon1 from '../assets/buy_bitcoin.jpeg';
 import icon2 from '../assets/sell_crypto.png';
 import icon3 from '../assets/logo.png';
@@ -24,8 +25,10 @@ const Dashboard = () => {
     { title: "CashApp Funds", description: "Btc,Eth,USDT,UDC,TRX,LTC & More", icon: icon6 },
   ];
 
-  const { username, logout } = useContext(AuthContext);
+  const { username, profilePicture, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useFetchUserInfo();
 
   const handleLogout = () => {
     logout();
@@ -35,10 +38,10 @@ const Dashboard = () => {
   return (
     <div className="app-container">
       <header className="header">
-        <h1 className="logo">skalex, {username} <span role="img" aria-label="smiley">😊</span></h1>
+        <h1 className="logo">{username} <span role="img" aria-label="smiley">😊</span></h1>
         <div className="header-icons">
           <FaBell className="icon" />
-          <UserDropdown onLogout={handleLogout} />
+          <UserDropdown onLogout={handleLogout} profilePicture={profilePicture} />
         </div>
       </header>
       <div className="content">
@@ -53,6 +56,6 @@ const Dashboard = () => {
       {/* <ToastContainer /> */}
     </div>
   );
-}
+};
 
 export default Dashboard;

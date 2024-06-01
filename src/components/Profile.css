@@ -18,13 +18,22 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #fff;
   }
   .settings-prof{
     display: flex;
-    border: solid red;
-    justify-items: space-between;
+    width: 79%;
+    overflow: auto;
+    justify-content: space-between;
+    padding: 12px;
   }
+
+.settings-prof p{
+  float: right;
+  text-align: center;
+  font-size: 17px;
+  cursor: pointer;
+}
   .register-container h3 p {
     display: flex;
     flex-direction: row;
